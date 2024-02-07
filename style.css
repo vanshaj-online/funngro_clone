@@ -82,9 +82,10 @@ nav{
 .nav-part-2 a{
     text-decoration: none;
     text-transform: uppercase;
-    color: #333;
+    color: var(--sameblue);
     padding: 5px 10px;
-    /* border-radius: 20px; */
+    border-radius: 20px;
+    border: 2px solid var(--sameblue);
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -96,7 +97,7 @@ nav{
 .nav-part-2 a:nth-child(2){
     background-color: var(--sameblue);
     color: white;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 .nav-part-2 a::before{
@@ -162,7 +163,7 @@ nav{
 }
 
 .nav-part-3 a:hover{
-    color: rgb(255, 255, 255);
+    color: var(--sameblue);
 }
 
 .nav-part-3 button img{
@@ -217,6 +218,12 @@ main{
 #left h1{
     font-size: clamp(3.5rem,4rem, 4.2rem);
     line-height: 4rem;
+    color: var(--sameblue);
+}
+
+#left p{
+    color: var(--sameblue);
+    font-size: clamp(1.2rem,1.2rem, 4.2rem);
 }
 
 #right img{
@@ -262,22 +269,24 @@ main{
 
 #popular h3{
     font-size: clamp(1rem, 1rem, 1.2rem);
+    color: #0a3fe0;
 }
 
 #popular a{
     font-size: clamp(0.9rem, 0.9rem, 1.2rem);
     text-decoration: none;
     letter-spacing: -0.2px;
-    border: 2px solid #333;
+    border: 2px solid #0a3fe0;
     text-transform: capitalize;
     padding: 2px 7px;
     font-weight: 600;
     border-radius: 20px;
     transition: .1s linear;
+    color: #0a3fe0;
 }
 
 #popular a:hover{
-    background-color: #333;
+    background-color: #0a3fe0;
     color: white;
 }
 
@@ -289,7 +298,7 @@ main{
 
 .section-2{
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 70px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -392,8 +401,8 @@ main{
     background-color: navy;
     color: white;
     text-decoration: none;
-    right: 2rem;
-    bottom: 2rem;
+    right: 1rem;
+    bottom: 1rem;
     padding: 7px 14px;
     border-radius: 10px;
     text-transform: capitalize;
@@ -412,7 +421,10 @@ main{
 
 .section-3{
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .project-section-slider{
@@ -422,7 +434,9 @@ main{
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
+    position: relative;
 }
+
 
 .project-section-heading{
     width: 60%;
@@ -437,41 +451,60 @@ main{
     font-size: 3rem;
 }
 
+.slide-wrapper{
+    width: 100%;
+    height: 40vh;
+    display: flex;
+}
+
+
 .project-section-slides{
     height: 40vh;
     width: 90%;
     display: flex;
     align-items: center;
-    justify-content: start;
-    padding-left: 4rem;
-    position: relative;
-    overflow: hidden;
-    gap: 2rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-left: 6rem;
+    gap: 7rem;
+    scroll-behavior: smooth;
 }
 
-.project-section-slides > button{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3rem;
+.project-section-slides::-webkit-scrollbar{
+    display: none;
+}
+
+.slide-btns{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+}
+
+.slide-wrapper button{
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--bgcolor);
+    /* background-color: black; */
     border: none;
 }
 
-.project-section-slides button:active > img{
+
+
+.project-section-slider button:active > img{
     transform: scale(.92);
 }
 
-.project-section-slides > button:last-child{
-    top: 0;
-    left: calc(100% - 3rem);
+.project-section-slider > button:last-child{
+    bottom: 0;
+    left: 95%;
 }
 
-.project-section-slides button img{
+.project-section-slider button img{
     height: 5rem;
     object-fit: contain;
 }
@@ -493,8 +526,112 @@ main{
 
 .project-section-slide:hover{
     box-shadow: var(--shadow);
+    transform: scale(1.04);
 }
 
 .project-section-slide > *{
     color: white;
+    text-transform: capitalize;
+}
+
+.project-section-slides > div {
+    transform: translateX(0rem);
+}
+
+
+/* section-3 styling */
+
+
+/* section-4 styling */
+
+
+.section-4{
+    min-height: calc(100vh - 70px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.testimonial-heading{
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.testimonial-heading p{
+    font-size: 1.3rem;
+    margin-top: 1rem;
+}
+
+.testimonial-cards{
+    min-height: 70vh;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.testimonial-card{
+    width: 25%;
+    height: 27rem;
+    background-color: var(--bgcolor);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    box-shadow:  8px 8px 15px #aeb3cc,
+             -8px -8px 15px rgba(255, 255, 255, 0.877);
+    padding: 2rem;
+}
+
+.about{
+    width: 100%;
+    height: 30%;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: auto auto;
+    border-radius: 10px;
+    overflow: hidden;
+    place-content: center;
+    gap: 10px;
+    padding: 0 rem;
+}
+
+.about img{
+    grid-column: span 2;
+    border-radius: 100px;
+    overflow: hidden;
+    object-fit: cover;
+    height: 6.1rem;
+    width: 6.1rem;
+    object-position: center;
+    grid-row: span 2;
+}
+
+.about h2,.about h3{
+    grid-column: span 3;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 10px ;
+    white-space: nowrap;
+}
+
+.about h3{
+    align-items: flex-start;
+    font-size: 1rem;
+    white-space: wrap;
+}
+
+.desc{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 2rem;
+    height: 70%;
 }
